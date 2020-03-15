@@ -653,7 +653,7 @@ class Gbdev_general extends Gbdev_Controller {
     function recaptcha($recaptcha_response,$recaptcha_secret){
         // Build POST request:
         $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-        //$recaptcha_secret = '6LcjQOEUAAAAAEBbQKgJwkfcrydpdhSn5_6303N7';
+        //$recaptcha_secret = 'secret key';
         //$recaptcha_response = $_POST['recaptcha_response'];
 
         // Make and decode POST request:
@@ -729,31 +729,7 @@ class Gbdev_general extends Gbdev_Controller {
      */
     private function sendEmailAutomatic($emails, $subject,$content, $from = null)
     {
-        //email templates https://www.dyspatch.io/resources/templates/
-        /*
-        $this->load->library('email');
 
-        $this->email->initialize(array(
-            'protocol' => 'smtp',
-            'smtp_host' => 'smtp.sendgrid.net',
-            'smtp_user' => 'apikey',
-            'smtp_pass' => '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',
-            'smtp_port' => 587,
-            'crlf' => "\r\n",
-            'newline' => "\r\n"
-        ));
-
-        $this->email->from('your@example.com', 'Your Name');
-        $this->email->to('bahor.gregor@gmail.com');
-        $this->email->cc('another@another-example.com');
-        $this->email->bcc('them@their-example.com');
-        $this->email->subject('Email Test');
-        $this->email->message('Testing the email class.');
-        $this->email->send();
-
-        echo $this->email->print_debugger();*/
-
-        // if ($_SERVER['SERVER_NAME'] != 'localhost') {
         $setting =  $this->data['settings'];
         if(isset($setting['use_smtp']) && $setting['use_smtp']==1){
 
@@ -769,16 +745,7 @@ class Gbdev_general extends Gbdev_Controller {
                 'starttls'  => true,
                 'crlf' => "\r\n",
                 'newline' => "\r\n"
-                /*           'protocol' => 'smtp',
-                           'smtp_host' => $setting['smtp_host'],
-                           'smtp_port' => $setting['smtp_port'],
-                           'smtp_user' => $setting['smtp_username'],
-                           'smtp_pass' => $setting['smtp_password'],
-                           'mailtype'  => 'html',
-                           'charset'   => 'iso-8859-1',
-                           'starttls'  => true,
-                           'newline'   => "\r\n"
-                */
+
             );
         }else{
             $config = array(
@@ -790,7 +757,7 @@ class Gbdev_general extends Gbdev_Controller {
             );
         }
         $this->load->library('email',$config);
-        //$this->email->initialize($config);
+   
 
         try {
             $this->email->clear();
@@ -811,15 +778,7 @@ class Gbdev_general extends Gbdev_Controller {
             //Do nothing
             print_r($e);die;
         }
-        //test
-        /* $this->email->from('your@example.com', 'Your Name');
-         $this->email->to('bahor.gregor@gmail.com');
-         $this->email->cc('another@another-example.com');
-         $this->email->bcc('them@their-example.com');
-         $this->email->subject('Email Test');
-         $this->email->message('Testing the email class.');
-         $this->email->send();*/
-        // }
+
     }
 
     // XML site map page (sitemap.xml)
