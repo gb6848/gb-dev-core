@@ -1,0 +1,183 @@
+#
+# *******************************************************************************************************
+# * Standard Type
+# *******************************************************************************************************
+# ID[This is just a number and use it in database]:
+#   id: [Repeat ID]
+#   name: "[Choose a name for select in admin side]"
+#   extensions_fields:
+#     icon |>choose an icon for extensions in admin side
+#     image |>upload an image for extensions in admin side
+#     description |>insert a long text for extensions in admin side
+#     full_description |>insert another long text for extensions in admin side
+#   theme: '[Used in page(Root: called in main template php file)]'
+#   theme_preview: '[Used in index(Root: views/)]'
+#   theme_extension: '[Used in one extension view(Root: called in main template php file)]'
+#   theme_ajax: '[Used in ajax extension load(Root: called in main template php file)]'
+# *******************************************************************************************************
+# * You can add new item here and use in your controller file
+#
+101:
+  id: 101
+  dynamic: 1
+  name: "News"
+  fields:
+    extension:
+      image
+      description
+    page:
+      preview
+      order
+  preview:
+    limit: 100
+  in_extension:
+    related_limit: 4
+  theme: "page_type/blog"
+  theme_preview: "gbdev_general/page_type/blog_preview"
+  theme_extension: "page_type/blog_extension"
+  theme_ajax: "page_type/blog_ajax"
+201:
+  id: 201
+  name: "services with icon"
+  fields:
+    gallery: 1
+    extension:
+      icon
+      description
+      order
+    page:
+      preview
+      order
+  preview:
+    limit: 3
+  theme_preview: "gbdev_general/page_type/services_icon_preview"
+202:
+  id: 202
+  name: "services with image"
+  fields:
+    extension:
+      image
+      description
+      order
+    page:
+      preview
+      order
+  theme: "page_type/services_image"
+  theme_preview: "gbdev_general/page_type/services_image_preview"
+203:
+  id: 203
+  name: "static only text"
+  fields:
+    extensions:
+      description
+      order
+  theme_preview: "gbdev_general/page_type/static_only_text_preview"
+  theme: "page_type/static_only_text"
+204:
+  id: 204
+  name: "About Page"
+  fields:
+    extension:
+      icon
+      description
+      image
+      order
+    page:
+      preview
+      order
+      image
+  preview:
+    limit: 1
+  theme_preview: "gbdev_general/page_type/about_preview"
+  theme_extension: "page_type/rsd_extension"
+  theme: "page_type/about"
+205:
+  id: 205
+  name: "Our group"
+  fields:
+      page:
+        preview
+        order
+      extension:
+        image
+        order
+        more:
+          job: text
+  preview:
+    limit: 3
+  theme_preview: "gbdev_general/page_type/our_group_preview"
+  theme: "page_type/our_group"
+206:
+  id: 206
+  dynamic: 1
+  name: "portfolio"
+  fields:
+      page:
+        preview
+        order
+      extension:
+        image
+        description
+        enabled_read_more
+        more:
+          link: url
+  preview:
+    limit: 40
+  in_extension:
+    related_limit: 8
+  theme_preview: "gbdev_general/page_type/portfolio_preview"
+  theme_extension: "page_type/portfolio_extension"
+  theme: "page_type/portfolio"
+210:
+  id: 210
+  name: "Support of development Program"
+  fields:
+    extension:
+      icon
+      description
+      order
+    page:
+      preview
+      order
+      image
+  preview:
+    limit: 1
+  theme_preview: "gbdev_general/page_type/support_of_development_program_preview"
+  theme_extension: "page_type/rsd_extension"
+  theme: "page_type/support_of_development_program"
+301:
+  id: 301
+  name: "Gallery 1"
+  fields:
+    gallery: 1
+    page:
+      preview
+      order
+  theme_preview: "gbdev_general/page_type/gallery_1_preview"
+  theme: "page_type/gallery_1_preview"
+401:
+  id: 401
+  name: "Pricing Table"
+  fields:
+    pricingTable: 1
+    extension:
+      more:
+        price: num
+        special: check
+        row1: text
+        row2: text
+        row3: text
+        row4: text
+        button_link:
+          caption: "Button Link"
+          type: url
+        button_name:
+          caption: "Button Name"
+          type: text
+    page:
+      preview
+      order
+  preview:
+    limit: 3
+  theme: "page_type/news_clumbs_big_pic"
+  theme_preview: "gbdev_general/page_type/pricing_table_preview"
